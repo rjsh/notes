@@ -6,7 +6,7 @@ This section provides additional information about the organization of codec dat
 
 ## 5.1.1. Frame (or NAL) start codes
 
-The term start codes refers to sequences in the bitstream that mark different boundaries such as frames or NALs in H.264. In general, start codes are NOT provided in most file formats and network protocols, and therefore the PV OpenCORE framework does NOT generally include start codes in the input buffers to OMX component. There are also no headers (e.g., headers that would provide the frame length, etc) artificially inserted into the bitstream within the input buffers.
+The term start codes refers to sequences in the bitstream that mark different boundaries such as frames or NALs in H.264. In general, start codes are **NOT** provided in most file formats and network protocols, and therefore the PV OpenCORE framework does **NOT** generally include start codes in the input buffers to OMX component. There are also no headers (e.g., headers that would provide the frame length, etc) artificially inserted into the bitstream within the input buffers.
 
 ## 5.1.2. OMX buffer fields
 
