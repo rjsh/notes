@@ -19,15 +19,17 @@ This guide presents:
 
 ## 2 IL core functionality and component loader mechanism
 
-### Figure 1: IL Core hierarchy – component loader interface
+<a id='f1'></a>
 
 ![Figure 1](./f1.jpg)
+
+**Figure 1: IL Core hierarchy – component loader interface**
 
 The standard core functionalities are implemented in Bellagio using an interface, called component loader, which allows a particular set of components to be handled with specific functions. A new component loader can be added without changing the core functionalities except one entry point, which is a static init function for each component loader. This function will initialize the specific component loader structure and assigns the proper function pointers.
 
 This approach allows also the porting of the Bellagio framework on a different operating system, without changing the core functions but only adding a component loader that uses the specific OS APIs.
 
-The Figure 1 describes how the IL core uses a standard interface, the `ComponentLoader`, to access a set of implementation/OS specific functions. In the current Bellagio implementation only a static loader mechanism for Linux is available, the `ST_static` in the Figure 1, but it is possible that multiple component loader mechanism live in the same core, as show by a generic “other” loader.
+The [Figure 1](#f1) describes how the IL core uses a standard interface, the `ComponentLoader`, to access a set of implementation/OS specific functions. In the current Bellagio implementation only a static loader mechanism for Linux is available, the `ST_static` in the [Figure 1](#f1), but it is possible that multiple component loader mechanism live in the same core, as show by a generic “other” loader.
 
 
 ### 2.1 Component Loader functions
@@ -74,9 +76,9 @@ A separate executable is also provided, named omxregister. This program scans in
 
 The Bellagio OpenMAX component hierarchy can be described as in the following class diagram:
 
-### Figure 2: Bellagio OpenMAX component hierarchy
-
 ![Figure 2](./f2.jpg)
+
+**Figure 2: Bellagio OpenMAX component hierarchy**
 
 The base class of the Bellagio hierarchy is the `omx_base_component` class. It contains the implementation of the basic OpenMAX standard functions: buffer creation and handling functions, retrieving and setting information, sending commands. The internal functions, not defined by OpenMAX are a constructor and a destructor, a message handler for the asynchronous commands received. All the functions related to buffers, allocation and dynamic send and retrieve data, are implemented in the `omx_base_port` class, and only the entry points are stored in the base component. Depending on the number of ports for a given component is composed the second layer of the Bellagio hierarchy. The class `omx_base_filter` is a generic component with an input and an output port. It contains the instance of two ports, which can be based or derived, it extends the base constructor with a derived constructor and it implements a new function, the `bufferMgmtFunction`. This function realized a generic data transfer from input to output, which can be enough in many cases. It comprehends also the possibility to flush ports, and every check needed by the OpenMAX spec. If the developer needs a particular mechanism not covered by it, this function should be overridden. The only point that remains unimplemented at this level is the central processing function, named `BufferMgmtCallback`, implemented by the final component. In the following paragraphs all the details of this architecture are described.
 
