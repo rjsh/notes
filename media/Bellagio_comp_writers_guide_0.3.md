@@ -19,7 +19,7 @@ This guide presents:
 
 ## 2 IL core functionality and component loader mechanism
 
-<a id='f1'></a>
+<a name='f1'></a>
 
 ![Figure 1](./f1.jpg)
 
