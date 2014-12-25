@@ -115,7 +115,7 @@ exhausted.
 
 **Data**: Each OMX input buffer contains one FULL MP4 Audio frame. All OMX input buffers are marked with `OMX_BUFFERFLAG_ENDOFFRAME`. No partial frames are ever placed into OMX input buffer for this format.
 
-## 5.3. AMR decoder formats
+# 5.3. AMR decoder formats
 
 The following applies to both Wide-band and Narrow-band versions of AMR.
 
@@ -128,21 +128,21 @@ configuration is provided through port parameters (e.g. IF2 vs. IETF)
 
 File storage format and IF2: AMR data for IF2 or File Storage Format contains the frame type field followed by frame data. The frame type field determines the size of the frame that follows.  Since there can be multiple frames in a single OMX input buffer, the OMX component needs to keep consuming the data from the buffer until data is exhausted.
 
-## 5.4. MP3 decoder format
+# 5.4. MP3 decoder format
 
 **Codec Configuration Header** is **NOT** provided separately for this format. Each frame of data
 carries its own header.
 
 **Data**: Each OMX input buffer contains one (or more than one) FULL MP3 frames. All OMX input buffers are marked with OMX_BUFFERFLAG_ENDOFFRAME. No partial frames are ever placed into OMX input buffer for this format. Since there can be multiple frames in a single OMX input buffer, the OMX component needs to keep consuming the data from the buffer until data is exhausted.
 
-## 5.5. WMA decoder format
+# 5.5. WMA decoder format
 
 **Codec Configuration Header** is sent in the first OMX input buffer. The first OMX input buffer contains only the codec configuration data and is marked with `OMX_BUFFERFLAG_ENDOFFRAME` and `OMX_BUFFERFLAG_CODECCONFIG` flag.
 
 **Data**: Each OMX input buffer contains one (or more than one) FULL WMA frames. All OMX input buffers are marked with `OMX_BUFFERFLAG_ENDOFFRAME`. No partial frames are ever placed into OMX input buffer for this format. Since there can be multiple frames in a single OMX input buffer, the OMX component needs to keep consuming the data from the buffer until data is exhausted.
 
 
-## 5.6. MPEG4 video decoder format
+# 5.6. MPEG4 video decoder format
 
 **Codec Configuration Header** (VOL header) s sent in the first OMX input buffer. The first OMX
 input buffer contains only the codec configuration data and is marked with
@@ -152,7 +152,7 @@ input buffer contains only the codec configuration data and is marked with
 
 **Note**: If necessary – i.e. if the OMX component is not capable of assembling partial frames, the PV OpenCORE framework can perform the assembly and provide a full frame to the OMX component. In order to enable this feature, it is necessary to use the “capability” flags. In other words, the OMX component must inform the PV OpenCORE framework about its capabilities.  This procedure is described in **Section 3.2.** of OHA document “[OpenMAX call sequences](http://www.netmite.com/android/mydroid/donut/external/opencore/doc/openmax_call_sequences.pdf)”. Frame assembly in the PV OpenCORE framework may incur a performance penalty.
 
-## 5.7. H263 video decoder format
+# 5.7. H263 video decoder format
 
 **Codec Configuration Header** is **NOT** provided separately for this format. Each frame of data
 carries its own header.
@@ -165,7 +165,7 @@ Typically, for all other PV supported formats - the first OMX input buffer eithe
 
 **Note 2**: If necessary – i.e. if the OMX component is not capable of assembling partial frames, the PV OpenCORE framework can perform the assembly and provide a full frame to the OMX component. In order to enable this feature, it is necessary to use the “capability” flags. In other words, the OMX component must inform the PV OpenCORE framework about its capabilities.  This procedure is described in **Section 3.2.** of OHA document “[OpenMAX call sequences](http://www.netmite.com/android/mydroid/donut/external/opencore/doc/openmax_call_sequences.pdf)”. Frame assembly in the PV OpenCORE framework may incur a performance penalty.
 
-## 5.8. WMV decoder format
+# 5.8. WMV decoder format
 
 **Codec Configuration Header** is sent in the first OMX input buffer. The first OMX input buffer contains only the codec configuration data and is marked with `OMX_BUFFERFLAG_ENDOFFRAME` and `OMX_BUFFERFLAG_CODECCONFIG` flag.
 
@@ -173,7 +173,7 @@ Typically, for all other PV supported formats - the first OMX input buffer eithe
 
 **Note**: If necessary – i.e. if the OMX component is not capable of assembling partial frames, the PV OpenCORE framework can perform the assembly and provide a full frame to the OMX component. In order to enable this feature, it is necessary to use the “capability” flags. In other words, the OMX component must inform the PV OpenCORE framework about its capabilities.  This procedure is described in **Section 3.2.** of OHA document “[OpenMAX call sequences](http://www.netmite.com/android/mydroid/donut/external/opencore/doc/openmax_call_sequences.pdf)”. Frame assembly in the PV OpenCORE framework may incur a performance penalty.
 
-## 5.9. H264/AVC decoder format
+# 5.9. H264/AVC decoder format
 
 **Codec Configuration Header**:
 
@@ -182,7 +182,7 @@ are sent is not guaranteed). SPS and PPS NALs are sent in separate buffers and t
 buffers are marked with `OMX_BUFFERFLAG_ENDOFFRAME` and
 `OMX_BUFFERFLAG_CODECCONFIG` flag.
 
-### 5.9.1. AVC NAL Mode vs. AVC Frame mode
+## 5.9.1. AVC NAL Mode vs. AVC Frame mode
 
 AVC data can be provided to the OMX component in two different modes depending on the setting of the capability flag “`iOMXComponentUsesFullAVCFrames`” (described in in **Section 3.2.** of OHA document “[OpenMAX call sequences](http://www.netmite.com/android/mydroid/donut/external/opencore/doc/openmax_call_sequences.pdf)”). The default is NAL mode and in this mode, the OpenCore framework provides a single or a partial AVC NAL in an OMX input buffer at a time. In the Frame mode – OpenCore framework accumulates AVC NALs and provides the OMX component with one full AVC frame placed into an OMX input buffer. NAL boundaries are communicated to the OMX component using `OMX_OTHER_EXTRADATA` structures. If both `iOMXComponentUsesFullAVCFrames`” and “`iOMXComponentUsesNALStartCodes`” capability flags are set to `OMX_TRUE` – then NAL boundaries inside the frame can be inferred by parsing the inserted NAL start codes. In such a case – `OMX_OTHER_EXTRADATA` structures are not
 used.
@@ -236,6 +236,6 @@ By reading and interpreting the ``OMX_OTHER_EXTRADATA`` structures – the OMX c
 **Figure 6: Example of NAL lengths in the buffer extra data.**
 
 
-## 5.10. YUV/RGB data format
+# 5.10. YUV/RGB data format
 
 In case of OMX video encoder components, raw video data is provided in either YUV or RGB format. The PV OpenCORE framework will provide one FULL frame of YUV or RGB data to OMX components.
