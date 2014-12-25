@@ -19,7 +19,7 @@ This guide presents:
 
 ## 2 IL core functionality and component loader mechanism
 
-<a id='user-content-f1'></a>
+<a id='f1'></a>
 
 ![Figure 1](./f1.jpg)
 
@@ -29,7 +29,7 @@ The standard core functionalities are implemented in Bellagio using an interface
 
 This approach allows also the porting of the Bellagio framework on a different operating system, without changing the core functions but only adding a component loader that uses the specific OS APIs.
 
-The [Figure 1](#f1) describes how the IL core uses a standard interface, the `ComponentLoader`, to access a set of implementation/OS specific functions. In the current Bellagio implementation only a static loader mechanism for Linux is available, the `ST_static` in the [Figure 1](#f1), but it is possible that multiple component loader mechanism live in the same core, as show by a generic “other” loader.
+The [Figure 1](#user-content-f1) describes how the IL core uses a standard interface, the `ComponentLoader`, to access a set of implementation/OS specific functions. In the current Bellagio implementation only a static loader mechanism for Linux is available, the `ST_static` in the [Figure 1](#user-content-f1), but it is possible that multiple component loader mechanism live in the same core, as show by a generic “other” loader.
 
 
 ### 2.1 Component Loader functions
