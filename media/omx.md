@@ -294,6 +294,7 @@ OMX buffer exchange APIs.
 
 <a id='f5'></a>
 ![Figure 5: OMX component state transition from `OMX_StateIdle` to `OMX_StateExecuting` and data exchange](h5.jpg "Figure 5: OMX component state transition from OMX_StateIdle to OMX_StateExecuting and data exchange")
+
 **Figure 5: OMX component state transition from `OMX_StateIdle` to `OMX_StateExecuting` and data exchange**
 
 
