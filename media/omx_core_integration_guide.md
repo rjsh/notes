@@ -14,7 +14,7 @@ The “`nFilledLen`” OMX buffer field, “`nTimestamp`” OMX buffer field and
 
 ## 5.1.3. Multiple frames in a single OMX input buffer
 
-Exchanging a large number of relatively small buffers may negatively affect performance. Certain codec formats inherently pack data into packets that contain multiple frames (e.g., AMR IETF). In cases where input data frames are relatively small in size (e.g., AMR and most speech formats) – PV framework may pack multiple **FULL** frames into a single OMX input buffer. This is the case for most speech codecs. See sections below for details on which exact formats use packing of multiple frames of data into a single buffer. In such cases, OMX input buffers are still marked with `OMX_BUFFERFLAG_ENDOFFRAME` flag. This is illustrated in [Figure 1](#user-content-f1) below.
+Exchanging a large number of relatively small buffers may negatively affect performance. Certain codec formats inherently pack data into packets that contain multiple frames (e.g., AMR IETF). In cases where input data frames are relatively small in size (e.g., AMR and most speech formats) – PV framework may pack multiple **FULL** frames into a single OMX input buffer. This is the case for most speech codecs. See sections below for details on which exact formats use packing of multiple frames of data into a single buffer. In such cases, OMX input buffers are still marked with `OMX_BUFFERFLAG_ENDOFFRAME` flag. This is illustrated in [Figure 1](#f1) below.
 
 Note that if packing of multiple frames into one OMX input buffer is used for a particular format – OMX input buffer contains one or more **FULL** frames of data of that format.  The “`nTimestamp`” OMX buffer field refers to the first frame of data in the buffer:
 
@@ -25,7 +25,7 @@ Note that if packing of multiple frames into one OMX input buffer is used for a 
 
 ## 5.1.4. Partial frames/NALs
 
-In case of video formats, the PV OpenCORE framework may place either a full or a partial frame (or NAL) into an OMX input buffer. If a full frame or NAL is placed into the OMX input buffer, then the `OMX_BUFFERFLAG_ENDOFFRAME` flag is applied to that buffer. In case of partial frames/NALs, a frame/NAL may be split into multiple OMX input buffers and sent to the OMX component in pieces. Partial frames generally vary in size. In this case, only the buffer that contains the last piece of the frame/NAL is marked with the `OMX_BUFFERFLAG_ENDOFFRAME` flag. This is illustrated in [Figure 2](#user-content-f2) and [Figure 3](#user-content-f3) below.
+In case of video formats, the PV OpenCORE framework may place either a full or a partial frame (or NAL) into an OMX input buffer. If a full frame or NAL is placed into the OMX input buffer, then the `OMX_BUFFERFLAG_ENDOFFRAME` flag is applied to that buffer. In case of partial frames/NALs, a frame/NAL may be split into multiple OMX input buffers and sent to the OMX component in pieces. Partial frames generally vary in size. In this case, only the buffer that contains the last piece of the frame/NAL is marked with the `OMX_BUFFERFLAG_ENDOFFRAME` flag. This is illustrated in [Figure 2](#f2) and [Figure 3](#f3) below.
 
 In the case of video formats that allow partial frames, the PV OpenCORE framework **NEVER**
 places data that belongs to more than one frame/NAL in the same OMX input buffer which
@@ -60,9 +60,9 @@ In the case of formats that allow partial frames – each OMX input buffer that 
 
 As mentioned above,
 
-1. If PV framework uses packing of multiple frames per one OMX input buffer for a specific codec format, then PV framework will also ensure that only **FULL** frames will appear in such a buffer, and that partial frames **WILL NOT** appear in any OMX buffers for that format. This situation is illustrated in [Figure 4](#user-content-f4).
+1. If PV framework uses packing of multiple frames per one OMX input buffer for a specific codec format, then PV framework will also ensure that only **FULL** frames will appear in such a buffer, and that partial frames **WILL NOT** appear in any OMX buffers for that format. This situation is illustrated in [Figure 4](#f4).
 
-2. If PV framework provides a frame/NAL split into partial frames/NALs for a specific codec format, then PV framework will also ensure that any data that belongs to multiple frames/NALs **WILL NOT** appear in the same OMX buffer. This is illustrated in [Figure 5](#user-content-f5).
+2. If PV framework provides a frame/NAL split into partial frames/NALs for a specific codec format, then PV framework will also ensure that any data that belongs to multiple frames/NALs **WILL NOT** appear in the same OMX buffer. This is illustrated in [Figure 5](#f5).
 
 <a id='f4'></a>
 ![Figure 4](./g4.jpg)
@@ -215,7 +215,7 @@ Also, “`OMX_ExtraDataNALSizeArray`” is a custom value defined as:
 
 By reading and interpreting the ``OMX_OTHER_EXTRADATA`` structures – the OMX component can determine the number of NAL units and the size of each NAL unit in the AVC frame – which is sufficient to determine NAL boundaries.
 
-[Figure 6](#user-content-f6) shows an example of an OMX buffer in AVC Frame Mode with 2 NALs and with the length values included in the extra data at the end of the buffer. The example is in a similar format to **Figure 4-3** of [1](https://www.khronos.org/registry/omxil/specs/OpenMAX_IL_1_1_2_Specification.pdf). The following is a summary of details for handling the NAL lengths:
+[Figure 6](#f6) shows an example of an OMX buffer in AVC Frame Mode with 2 NALs and with the length values included in the extra data at the end of the buffer. The example is in a similar format to **Figure 4-3** of [1](https://www.khronos.org/registry/omxil/specs/OpenMAX_IL_1_1_2_Specification.pdf). The following is a summary of details for handling the NAL lengths:
 
 1. Each buffer that includes NAL length data SHALL have the `OMX_BUFFERFLAG_EXTRADATA` bit set in the nFlags field of the `OMX_BUFFERHEADERTYPE` structure.
 2. The length of each NAL **SHALL** be encoded as a single 4 byte unsigned integer (i.e., the `OMX_U32` type as defined in the OpenMAX specification).
