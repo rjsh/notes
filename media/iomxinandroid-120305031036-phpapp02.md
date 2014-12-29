@@ -213,7 +213,7 @@ the buffer is needed to be accessed from user space.
     }
 
 The purpose of registering the buffers to the buffer handler class is explained in the [buffer
-handling section](#3.4buffermanagement) later.
+handling section](#34-buffer-management) later.
 
 ### 3.2.5 Configuring the component
 
@@ -297,9 +297,9 @@ based on message type in the following code snippet.
 
 Encoded video frames are read from the file through the file parser module. Codec configuration
 data is also fetched through parser and sent to the decoder at the beginning. Both frame data
-and codec configuration data are passed through `emptyBuffer()` on the input port as shown [here](#3.4.3acquiringabuffer).
+and codec configuration data are passed through `emptyBuffer()` on the input port as shown [here](#343-acquiring-a-buffer).
 
-Free buffers for decoded data are pushed to the component through `fillBuffer()` as shown [here](#3.4.3acquiringabuffer).
+Free buffers for decoded data are pushed to the component through `fillBuffer()` as shown [here](#343-acquiring-a-buffer).
 OMX decoder component fills the buffer and provides back to the client through call back.
 
 ### 3.2.8 Video rendering
