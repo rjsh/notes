@@ -37,7 +37,7 @@ The following steps take place when the OMX core is initialized:
    This interaction is shown in [Figure 1](#f1).
 
 <a id='f1'></a>
-![Figure 1: OMX Core Initialization](f1.jpg "Figure 1: OMX Core Initialization")
+![Figure 1: OMX Core Initialization](h1.jpg "Figure 1: OMX Core Initialization")
 
 ## 3.2. OMX Component instantiation, capabilities and port indices
 
@@ -167,7 +167,7 @@ Core Integration Guide” in section 5.9.
 
 
 <a id='f2'></a>
-![Figure 2: OMX component instantiation through `OMX_GetHandle`](f2.jpg "Figure 2: OMX component instantiation through OMX_GetHandle")
+![Figure 2: OMX component instantiation through `OMX_GetHandle`](h2.jpg "Figure 2: OMX component instantiation through OMX_GetHandle")
 
 
 
@@ -225,7 +225,7 @@ Assumptions:
 
 
 <a id='f3'></a>
-![Figure 3: OMX component parameter negotiation](f3.jpg "Figure 3: OMX component parameter negotiation")
+![Figure 3: OMX component parameter negotiation](h3.jpg "Figure 3: OMX component parameter negotiation")
 
 ## 3.4. OMX Transition Loaded->Idle State
 
@@ -255,7 +255,7 @@ can be passed into the component without using the unnecessary memory copies (i.
 
 
 <a id='f4'></a>
-![Figure 4: OMX component state transition from `OMX_StateLoaded` to `OMX_StateIdle`](f4.jpg "Figure 4: OMX component state transition from OMX_StateLoaded to OMX_StateIdle")
+![Figure 4: OMX component state transition from `OMX_StateLoaded` to `OMX_StateIdle`](h4.jpg "Figure 4: OMX component state transition from OMX_StateLoaded to OMX_StateIdle")
 
 
 
@@ -290,7 +290,7 @@ OMX buffer exchange APIs.
 
 
 <a id='f5'></a>
-![Figure 5: OMX component state transition from `OMX_StateIdle` to `OMX_StateExecuting` and data exchange](f5.jpg "Figure 5: OMX component state transition from OMX_StateIdle to OMX_StateExecuting and data exchange")
+![Figure 5: OMX component state transition from `OMX_StateIdle` to `OMX_StateExecuting` and data exchange](h5.jpg "Figure 5: OMX component state transition from OMX_StateIdle to OMX_StateExecuting and data exchange")
 
 
 ## 3.6. Pausing
@@ -320,7 +320,7 @@ This interaction is shown in [Figure 6](#f6).
 
 
 <a id='f6'></a>
-![Figure 6: OMX component state transition from `OMX_StateExecuting` to `OMX_StatePause` and back](f6.jpg "Figure 6: OMX component state transition from OMX_StateExecuting to OMX_StatePause and back")
+![Figure 6: OMX component state transition from `OMX_StateExecuting` to `OMX_StatePause` and back](h6.jpg "Figure 6: OMX component state transition from OMX_StateExecuting to OMX_StatePause and back")
 
 
 
@@ -348,7 +348,7 @@ dynamic port reconfiguration procedure.
 
 
 <a id='f7'></a>
-![Figure 7: OMX component port flush procedure](f7.jpg "Figure 7: OMX component port flush procedure")
+![Figure 7: OMX component port flush procedure](h7.jpg "Figure 7: OMX component port flush procedure")
 
 
 ## 3.8. Stopping/Transition to “Idle” state
@@ -371,7 +371,7 @@ component as mandated by the OMX specification.
 
 
 <a id='f8'></a>
-![Figure 8: OMX component state transition from `OMX_StateExecuting/Paused` to `OMX_StateIdle`](f8.jpg "Figure 8: OMX component state transition from OMX_StateExecuting/Paused to OMX_StateIdle")
+![Figure 8: OMX component state transition from `OMX_StateExecuting/Paused` to `OMX_StateIdle`](h8.jpg "Figure 8: OMX component state transition from OMX_StateExecuting/Paused to OMX_StateIdle")
 
 
 ## 3.9. OMX Component Transition from Idle->Loaded State and De-initialization
@@ -397,7 +397,7 @@ may arrive after the callback that the OMX component transitioned from “execut
 
 
 <a id='f9'></a>
-![Figure 9: OMX component state transition from `OMX_StateIdle` to `OMX_StateLoaded`](f9.jpg "Figure 9: OMX component state transition from OMX_StateIdle to OMX_StateLoaded")
+![Figure 9: OMX component state transition from `OMX_StateIdle` to `OMX_StateLoaded`](h9.jpg "Figure 9: OMX component state transition from OMX_StateIdle to OMX_StateLoaded")
 
 
 ## 3.10. OMX Core De-initialization
