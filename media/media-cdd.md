@@ -299,9 +299,9 @@ In addition to the above recording specifications, when an application has start
 
 From *Android 4.4*, `android.media.MediaRecorder.AudioSource` class has a new audio source: `REMOTE_SUBMIX`. Devices *MUST* properly implement the `REMOTE_SUBMIX` audio source so that when an application uses the `android.media.`AudioRecord API to record from this audio source, it can capture a mix of all audio streams except for the following:
 
-`STREAM_RING`
-`STREAM_ALARM`
-`STREAM_NOTIFICATION`
+    STREAM_RING
+    STREAM_ALARM
+    STREAM_NOTIFICATION
 
 *Note*: while some of the requirements outlined above are stated as "*SHOULD*" since *Android 4.3*, the Compatibility Definition for a future version is planned to change these to "*MUST*". That is, these requirements are optional in *Android 4.4* but will be required by a future version. Existing and new devices that run Android are very strongly encouraged to meet these requirements, or they will not be able to attain Android compatibility when upgraded to the future version.
 
