@@ -257,8 +257,8 @@ following H.264 video encoding profiles.
 Android device implementations that include a rear-facing camera and declare `android.hardware.camera` *SHOULD* support the
 following VP8 video encoding profiles
 
- |SD (Low quality) | SD (High quality) | HD 720p (When supported by hardware) | HD 1080p (When supported by hardware)
-------------- | ------------- | ------------- | -------------
+  | SD (Low quality) | SD (High quality) | HD 720p (When supported by hardware) | HD 1080p (When supported by hardware)
+------------- | ------------- | ------------- | ------------- | ------------- 
  **Video resolution**  | 320 x 180 px | 640 x 360 px | 1280 x 720 px | 1920 x 1080 px 
  **Video frame rate**  | 30 fps       | 30 fps       | 30 fps        | 30 fps 
  **Video bitrate**     | 800 Kbps     | 2 Mbps       | 4 Mbps        | 10 Mbps 
@@ -272,7 +272,7 @@ codecs.
 
  |SD (Low  quality) | SD (High quality) | HD 720p (When supported by hardware) | HD 1080p (When supported by hardware)
 ------------- | ------------- | ------------- | ------------- | ------------- 
- **Video resolution **| 320 x 180 px |        640 x 360 px |       1280 x 720 px |                1920 x 1080 px 
+ **Video resolution** | 320 x 180 px |        640 x 360 px |       1280 x 720 px |                1920 x 1080 px 
  **Video frame rate** | 30 fps       |        30 fps       |       30 fps        |                30 fps 
  **Video bitrate**    | 800 Kbps     |        2 Mbps       |       8 Mbps        |                20 Mbps 
 
