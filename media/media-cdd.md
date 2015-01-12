@@ -245,20 +245,20 @@ Android device implementations that include a rear-facing camera and declare `an
 following H.264 video encoding profiles.
 
 
- | SD (Low quality) | SD (High quality) | HD (When supported by hardware)
--|------------------|-------------------|--------------------------------
- Video resolution | 176 x 144 px | 480 x 360 px        | 1280 x 720 px
- Video frame rate | 12 fps       | 30 fps              | 30 fps
- Video bitrat     | 56 Kbps      | 500 Kbps or higher  | 2 Mbps or higher
- Audio codec      | AAC-LC       | AAC-LC              | AAC-LC
- Audio channels   | 1 (mono)     | 2 (stereo)          | 2 (stereo)
- Audio bitrate    | 24 Kbps      | 128 Kbps            | 192 Kbps
+  | SD (Low quality) | SD (High quality) | HD (When supported by hardware)
+------------- | ------------- | ------------- | -------------
+ **Video resolution** | 176 x 144 px | 480 x 360 px        | 1280 x 720 px
+ **Video frame rate** | 12 fps       | 30 fps              | 30 fps
+ **Video bitrat**     | 56 Kbps      | 500 Kbps or higher  | 2 Mbps or higher
+ **Audio codec**      | AAC LC       | AAC LC              | AAC LC
+ **Audio channels**   | 1 (mono)     | 2 (stereo)          | 2 (stereo)
+ **Audio bitrate**    | 24 Kbps      | 128 Kbps            | 192 Kbps
 
 Android device implementations that include a rear-facing camera and declare `android.hardware.camera` *SHOULD* support the
 following VP8 video encoding profiles
 
  |SD (Low quality) | SD (High quality) | HD 720p (When supported by hardware) | HD 1080p (When supported by hardware)
--|-----------------|-------------------|--------------------------------------|--------------------------------------
+------------- | ------------- | ------------- | -------------
  **Video resolution**  | 320 x 180 px | 640 x 360 px | 1280 x 720 px | 1920 x 1080 px 
  **Video frame rate**  | 30 fps       | 30 fps       | 30 fps        | 30 fps 
  **Video bitrate**     | 800 Kbps     | 2 Mbps       | 4 Mbps        | 10 Mbps 
@@ -271,7 +271,7 @@ implementations *SHOULD* also support dynamic video resolution switching within 
 codecs.
 
  |SD (Low  quality) | SD (High quality) | HD 720p (When supported by hardware) | HD 1080p (When supported by hardware)
-------------------|-------------------|--------------------------------------|--------------------------------------
+------------- | ------------- | ------------- | ------------- | ------------- 
  **Video resolution **| 320 x 180 px |        640 x 360 px |       1280 x 720 px |                1920 x 1080 px 
  **Video frame rate** | 30 fps       |        30 fps       |       30 fps        |                30 fps 
  **Video bitrate**    | 800 Kbps     |        2 Mbps       |       8 Mbps        |                20 Mbps 
